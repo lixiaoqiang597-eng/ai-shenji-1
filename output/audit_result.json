@@ -1,0 +1,914 @@
+{
+  "summary": {
+    "high": 6,
+    "medium": 0,
+    "low": 0,
+    "pass": 2
+  },
+  "records": [
+    {
+      "claim_id": "R2026001",
+      "submitter": "张三",
+      "category": "差旅费-住宿",
+      "amount": 860.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+        "rule_severity": "high",
+        "rule_hit": true,
+        "deterministic_rule_ids": [
+          "D1",
+          "D3"
+        ],
+        "semantic_rule_ids": [],
+        "llm_consistent": true,
+        "llm_confidence": 0.95
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D1",
+          "rule_name": "重复发票",
+          "hit": true,
+          "severity": "high",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026001",
+              "rule_id": "D1",
+              "field": "invoice_no",
+              "field_value": "INV-2026-1101",
+              "message": "发票号 INV-2026-1101 出现在单据 ['R2026001', 'R2026005'] 中，疑似重复报销"
+            }
+          ],
+          "message": "发票号在 2 张单据中重复出现"
+        },
+        {
+          "rule_id": "D3",
+          "rule_name": "金额超限",
+          "hit": true,
+          "severity": "medium",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026001",
+              "rule_id": "D3",
+              "field": "amount",
+              "field_value": 860.0,
+              "message": "差旅费-住宿 上限 600.00 元，本单 860.00 元，超出 260.00 元"
+            }
+          ],
+          "message": "金额超出类别政策上限"
+        }
+      ],
+      "llm_decision": {
+        "consistent": true,
+        "confidence": 0.95,
+        "reason": "报销事由为赴广州参加行业展会期间的住宿两晚，与差旅费-住宿类别及酒店供应商相符。",
+        "risk_type": "无",
+        "backend": "openai",
+        "raw": {
+          "consistent": true,
+          "confidence": 0.95,
+          "reason": "报销事由为赴广州参加行业展会期间的住宿两晚，与差旅费-住宿类别及酒店供应商相符。",
+          "risk_type": "无"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026001",
+        "source_fields": {
+          "submitter": "张三",
+          "department": "市场部",
+          "expense_date": "2026-11-03",
+          "category": "差旅费-住宿",
+          "amount": 860.0,
+          "invoice_no": "INV-2026-1101",
+          "vendor": "城市快捷酒店",
+          "business_purpose": "赴广州参加行业展会期间住宿，两晚"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D1",
+            "rule_name": "重复发票",
+            "hit": true,
+            "severity": "high",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026001",
+                "rule_id": "D1",
+                "field": "invoice_no",
+                "field_value": "INV-2026-1101",
+                "message": "发票号 INV-2026-1101 出现在单据 ['R2026001', 'R2026005'] 中，疑似重复报销"
+              }
+            ],
+            "message": "发票号在 2 张单据中重复出现"
+          },
+          {
+            "rule_id": "D3",
+            "rule_name": "金额超限",
+            "hit": true,
+            "severity": "medium",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026001",
+                "rule_id": "D3",
+                "field": "amount",
+                "field_value": 860.0,
+                "message": "差旅费-住宿 上限 600.00 元，本单 860.00 元，超出 260.00 元"
+              }
+            ],
+            "message": "金额超出类别政策上限"
+          }
+        ],
+        "llm_decision": {
+          "consistent": true,
+          "confidence": 0.95,
+          "risk_type": "无",
+          "reason": "报销事由为赴广州参加行业展会期间的住宿两晚，与差旅费-住宿类别及酒店供应商相符。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+          "rule_severity": "high",
+          "rule_hit": true,
+          "deterministic_rule_ids": [
+            "D1",
+            "D3"
+          ],
+          "semantic_rule_ids": [],
+          "llm_consistent": true,
+          "llm_confidence": 0.95
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "5e8920d4e55958319261b0e17a2d0bdac6d860631222744f549727b707501638"
+      }
+    },
+    {
+      "claim_id": "R2026002",
+      "submitter": "李四",
+      "category": "业务招待费",
+      "amount": 3200.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+        "rule_severity": "high",
+        "rule_hit": true,
+        "deterministic_rule_ids": [
+          "D3",
+          "D4"
+        ],
+        "semantic_rule_ids": [],
+        "llm_consistent": true,
+        "llm_confidence": 0.95
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D3",
+          "rule_name": "金额超限",
+          "hit": true,
+          "severity": "high",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026002",
+              "rule_id": "D3",
+              "field": "amount",
+              "field_value": 3200.0,
+              "message": "业务招待费 上限 1500.00 元，本单 3200.00 元，超出 1700.00 元"
+            }
+          ],
+          "message": "金额超出类别政策上限"
+        },
+        {
+          "rule_id": "D4",
+          "rule_name": "超部门预算",
+          "hit": true,
+          "severity": "medium",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026002",
+              "rule_id": "D4",
+              "field": "department_budget",
+              "field_value": {
+                "amount": 3200.0,
+                "budget": 2000.0
+              },
+              "message": "单据 3200.00 元 > 部门预算 2000.00 元"
+            }
+          ],
+          "message": "超出部门预算额度"
+        }
+      ],
+      "llm_decision": {
+        "consistent": true,
+        "confidence": 0.95,
+        "reason": "销售部在酒楼接待客户洽谈年度合作，属于业务招待费的合理业务实质。",
+        "risk_type": "无",
+        "backend": "openai",
+        "raw": {
+          "consistent": true,
+          "confidence": 0.95,
+          "reason": "销售部在酒楼接待客户洽谈年度合作，属于业务招待费的合理业务实质。",
+          "risk_type": "无"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026002",
+        "source_fields": {
+          "submitter": "李四",
+          "department": "销售部",
+          "expense_date": "2026-11-05",
+          "category": "业务招待费",
+          "amount": 3200.0,
+          "invoice_no": "INV-2026-1102",
+          "vendor": "悦宴酒楼",
+          "business_purpose": "接待客户洽谈年度合作"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D3",
+            "rule_name": "金额超限",
+            "hit": true,
+            "severity": "high",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026002",
+                "rule_id": "D3",
+                "field": "amount",
+                "field_value": 3200.0,
+                "message": "业务招待费 上限 1500.00 元，本单 3200.00 元，超出 1700.00 元"
+              }
+            ],
+            "message": "金额超出类别政策上限"
+          },
+          {
+            "rule_id": "D4",
+            "rule_name": "超部门预算",
+            "hit": true,
+            "severity": "medium",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026002",
+                "rule_id": "D4",
+                "field": "department_budget",
+                "field_value": {
+                  "amount": 3200.0,
+                  "budget": 2000.0
+                },
+                "message": "单据 3200.00 元 > 部门预算 2000.00 元"
+              }
+            ],
+            "message": "超出部门预算额度"
+          }
+        ],
+        "llm_decision": {
+          "consistent": true,
+          "confidence": 0.95,
+          "risk_type": "无",
+          "reason": "销售部在酒楼接待客户洽谈年度合作，属于业务招待费的合理业务实质。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+          "rule_severity": "high",
+          "rule_hit": true,
+          "deterministic_rule_ids": [
+            "D3",
+            "D4"
+          ],
+          "semantic_rule_ids": [],
+          "llm_consistent": true,
+          "llm_confidence": 0.95
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "eda41ef49c73850fb6a6eb5c9e550379928a93b6d1fec4790634e478d7da34b2"
+      }
+    },
+    {
+      "claim_id": "R2026003",
+      "submitter": "王五",
+      "category": "办公费",
+      "amount": 520.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "语义规则与大模型均提示实质不符，列入高风险复核",
+        "rule_severity": "medium",
+        "rule_hit": true,
+        "deterministic_rule_ids": [],
+        "semantic_rule_ids": [
+          "D5"
+        ],
+        "llm_consistent": false,
+        "llm_confidence": 0.9
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D5",
+          "rule_name": "科目关键词不符",
+          "hit": true,
+          "severity": "medium",
+          "deterministic": false,
+          "evidence": [
+            {
+              "claim_id": "R2026003",
+              "rule_id": "D5",
+              "field": "business_purpose",
+              "field_value": "购买投影仪设备一台",
+              "message": "类别 办公费 的关键词 ['文具', '纸张', '办公', '书籍', '耗材'] 均未在事由中出现，是否实质不符需大模型复核"
+            }
+          ],
+          "message": "事由未命中类别关键词，待语义复核"
+        }
+      ],
+      "llm_decision": {
+        "consistent": false,
+        "confidence": 0.9,
+        "reason": "投影仪设备属于设备购置或固定资产，不应计入办公费，且供应商为文具商与设备采购不匹配。",
+        "risk_type": "科目不符",
+        "backend": "openai",
+        "raw": {
+          "consistent": false,
+          "confidence": 0.9,
+          "reason": "投影仪设备属于设备购置或固定资产，不应计入办公费，且供应商为文具商与设备采购不匹配。",
+          "risk_type": "科目不符"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026003",
+        "source_fields": {
+          "submitter": "王五",
+          "department": "研发部",
+          "expense_date": "2026-11-06",
+          "category": "办公费",
+          "amount": 520.0,
+          "invoice_no": "INV-2026-1103",
+          "vendor": "晨光文具",
+          "business_purpose": "购买投影仪设备一台"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D5",
+            "rule_name": "科目关键词不符",
+            "hit": true,
+            "severity": "medium",
+            "deterministic": false,
+            "evidence": [
+              {
+                "claim_id": "R2026003",
+                "rule_id": "D5",
+                "field": "business_purpose",
+                "field_value": "购买投影仪设备一台",
+                "message": "类别 办公费 的关键词 ['文具', '纸张', '办公', '书籍', '耗材'] 均未在事由中出现，是否实质不符需大模型复核"
+              }
+            ],
+            "message": "事由未命中类别关键词，待语义复核"
+          }
+        ],
+        "llm_decision": {
+          "consistent": false,
+          "confidence": 0.9,
+          "risk_type": "科目不符",
+          "reason": "投影仪设备属于设备购置或固定资产，不应计入办公费，且供应商为文具商与设备采购不匹配。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "语义规则与大模型均提示实质不符，列入高风险复核",
+          "rule_severity": "medium",
+          "rule_hit": true,
+          "deterministic_rule_ids": [],
+          "semantic_rule_ids": [
+            "D5"
+          ],
+          "llm_consistent": false,
+          "llm_confidence": 0.9
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "5365f19e14ee6db88c906bc3e38a22fd0d32f775a1bd314a7e44d98ed2a8b838"
+      }
+    },
+    {
+      "claim_id": "R2026004",
+      "submitter": "赵六",
+      "category": "差旅费-交通",
+      "amount": 480.0,
+      "verdict": {
+        "level": "pass",
+        "action": "auto_pass",
+        "reason": "双路径一致通过，置信度达标",
+        "rule_severity": "pass",
+        "rule_hit": false,
+        "deterministic_rule_ids": [],
+        "semantic_rule_ids": [],
+        "llm_consistent": true,
+        "llm_confidence": 0.95
+      },
+      "rule_findings": [],
+      "llm_decision": {
+        "consistent": true,
+        "confidence": 0.95,
+        "reason": "南方航空机票属于差旅交通费，且事由为赴深圳拜访客户的往返机票，与费用类别和业务实质相符。",
+        "risk_type": "无",
+        "backend": "openai",
+        "raw": {
+          "consistent": true,
+          "confidence": 0.95,
+          "reason": "南方航空机票属于差旅交通费，且事由为赴深圳拜访客户的往返机票，与费用类别和业务实质相符。",
+          "risk_type": "无"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026004",
+        "source_fields": {
+          "submitter": "赵六",
+          "department": "市场部",
+          "expense_date": "2026-11-07",
+          "category": "差旅费-交通",
+          "amount": 480.0,
+          "invoice_no": "INV-2026-1104",
+          "vendor": "南方航空",
+          "business_purpose": "赴深圳拜访客户往返机票"
+        },
+        "rule_findings": [],
+        "llm_decision": {
+          "consistent": true,
+          "confidence": 0.95,
+          "risk_type": "无",
+          "reason": "南方航空机票属于差旅交通费，且事由为赴深圳拜访客户的往返机票，与费用类别和业务实质相符。"
+        },
+        "verdict": {
+          "level": "pass",
+          "action": "auto_pass",
+          "reason": "双路径一致通过，置信度达标",
+          "rule_severity": "pass",
+          "rule_hit": false,
+          "deterministic_rule_ids": [],
+          "semantic_rule_ids": [],
+          "llm_consistent": true,
+          "llm_confidence": 0.95
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "0cd33992f342daa77a1fefed092d6a53b3b6d16581a935052eb7cd048f4dea32"
+      }
+    },
+    {
+      "claim_id": "R2026005",
+      "submitter": "张三",
+      "category": "差旅费-住宿",
+      "amount": 430.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+        "rule_severity": "high",
+        "rule_hit": true,
+        "deterministic_rule_ids": [
+          "D1",
+          "D6"
+        ],
+        "semantic_rule_ids": [],
+        "llm_consistent": true,
+        "llm_confidence": 0.92
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D1",
+          "rule_name": "重复发票",
+          "hit": true,
+          "severity": "high",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026005",
+              "rule_id": "D1",
+              "field": "invoice_no",
+              "field_value": "INV-2026-1101",
+              "message": "发票号 INV-2026-1101 出现在单据 ['R2026001', 'R2026005'] 中，疑似重复报销"
+            }
+          ],
+          "message": "发票号在 2 张单据中重复出现"
+        },
+        {
+          "rule_id": "D6",
+          "rule_name": "事由证据不足",
+          "hit": true,
+          "severity": "low",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026005",
+              "rule_id": "D6",
+              "field": "business_purpose",
+              "field_value": "展会住宿补开票",
+              "message": "事由长度 7 < 8，信息不足以判断业务实质"
+            }
+          ],
+          "message": "报销事由过短，证据不足"
+        }
+      ],
+      "llm_decision": {
+        "consistent": true,
+        "confidence": 0.92,
+        "reason": "展会住宿属于差旅住宿支出，与差旅费-住宿科目相符，补开票仅为开票方式说明。",
+        "risk_type": "无",
+        "backend": "openai",
+        "raw": {
+          "consistent": true,
+          "confidence": 0.92,
+          "reason": "展会住宿属于差旅住宿支出，与差旅费-住宿科目相符，补开票仅为开票方式说明。",
+          "risk_type": "无"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026005",
+        "source_fields": {
+          "submitter": "张三",
+          "department": "市场部",
+          "expense_date": "2026-11-08",
+          "category": "差旅费-住宿",
+          "amount": 430.0,
+          "invoice_no": "INV-2026-1101",
+          "vendor": "城市快捷酒店",
+          "business_purpose": "展会住宿补开票"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D1",
+            "rule_name": "重复发票",
+            "hit": true,
+            "severity": "high",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026005",
+                "rule_id": "D1",
+                "field": "invoice_no",
+                "field_value": "INV-2026-1101",
+                "message": "发票号 INV-2026-1101 出现在单据 ['R2026001', 'R2026005'] 中，疑似重复报销"
+              }
+            ],
+            "message": "发票号在 2 张单据中重复出现"
+          },
+          {
+            "rule_id": "D6",
+            "rule_name": "事由证据不足",
+            "hit": true,
+            "severity": "low",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026005",
+                "rule_id": "D6",
+                "field": "business_purpose",
+                "field_value": "展会住宿补开票",
+                "message": "事由长度 7 < 8，信息不足以判断业务实质"
+              }
+            ],
+            "message": "报销事由过短，证据不足"
+          }
+        ],
+        "llm_decision": {
+          "consistent": true,
+          "confidence": 0.92,
+          "risk_type": "无",
+          "reason": "展会住宿属于差旅住宿支出，与差旅费-住宿科目相符，补开票仅为开票方式说明。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+          "rule_severity": "high",
+          "rule_hit": true,
+          "deterministic_rule_ids": [
+            "D1",
+            "D6"
+          ],
+          "semantic_rule_ids": [],
+          "llm_consistent": true,
+          "llm_confidence": 0.92
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "e316aa7b8064b44ef41c9ecc427768c020dab0bc1025c7966c701935b2403b63"
+      }
+    },
+    {
+      "claim_id": "R2026006",
+      "submitter": "钱七",
+      "category": "业务招待费",
+      "amount": 960.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "语义规则与大模型均提示实质不符，列入高风险复核",
+        "rule_severity": "medium",
+        "rule_hit": true,
+        "deterministic_rule_ids": [],
+        "semantic_rule_ids": [
+          "D5"
+        ],
+        "llm_consistent": false,
+        "llm_confidence": 0.95
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D5",
+          "rule_name": "科目关键词不符",
+          "hit": true,
+          "severity": "medium",
+          "deterministic": false,
+          "evidence": [
+            {
+              "claim_id": "R2026006",
+              "rule_id": "D5",
+              "field": "business_purpose",
+              "field_value": "部门内部团建聚餐",
+              "message": "类别 业务招待费 的关键词 ['接待', '客户', '宴请', '招待', '商务餐'] 均未在事由中出现，是否实质不符需大模型复核"
+            }
+          ],
+          "message": "事由未命中类别关键词，待语义复核"
+        }
+      ],
+      "llm_decision": {
+        "consistent": false,
+        "confidence": 0.95,
+        "reason": "部门内部团建聚餐属于内部员工活动，不应计入业务招待费。",
+        "risk_type": "科目不符",
+        "backend": "openai",
+        "raw": {
+          "consistent": false,
+          "confidence": 0.95,
+          "reason": "部门内部团建聚餐属于内部员工活动，不应计入业务招待费。",
+          "risk_type": "科目不符"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026006",
+        "source_fields": {
+          "submitter": "钱七",
+          "department": "销售部",
+          "expense_date": "2026-11-09",
+          "category": "业务招待费",
+          "amount": 960.0,
+          "invoice_no": "INV-2026-1106",
+          "vendor": "川味火锅店",
+          "business_purpose": "部门内部团建聚餐"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D5",
+            "rule_name": "科目关键词不符",
+            "hit": true,
+            "severity": "medium",
+            "deterministic": false,
+            "evidence": [
+              {
+                "claim_id": "R2026006",
+                "rule_id": "D5",
+                "field": "business_purpose",
+                "field_value": "部门内部团建聚餐",
+                "message": "类别 业务招待费 的关键词 ['接待', '客户', '宴请', '招待', '商务餐'] 均未在事由中出现，是否实质不符需大模型复核"
+              }
+            ],
+            "message": "事由未命中类别关键词，待语义复核"
+          }
+        ],
+        "llm_decision": {
+          "consistent": false,
+          "confidence": 0.95,
+          "risk_type": "科目不符",
+          "reason": "部门内部团建聚餐属于内部员工活动，不应计入业务招待费。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "语义规则与大模型均提示实质不符，列入高风险复核",
+          "rule_severity": "medium",
+          "rule_hit": true,
+          "deterministic_rule_ids": [],
+          "semantic_rule_ids": [
+            "D5"
+          ],
+          "llm_consistent": false,
+          "llm_confidence": 0.95
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "5d8746b854cec7e42eff46dad8d85686f61948b2fff4ef0b52d223124b394450"
+      }
+    },
+    {
+      "claim_id": "R2026007",
+      "submitter": "孙八",
+      "category": "差旅费-住宿",
+      "amount": 1280.0,
+      "verdict": {
+        "level": "high",
+        "action": "manual",
+        "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+        "rule_severity": "high",
+        "rule_hit": true,
+        "deterministic_rule_ids": [
+          "D3"
+        ],
+        "semantic_rule_ids": [
+          "D5"
+        ],
+        "llm_consistent": false,
+        "llm_confidence": 0.99
+      },
+      "rule_findings": [
+        {
+          "rule_id": "D3",
+          "rule_name": "金额超限",
+          "hit": true,
+          "severity": "high",
+          "deterministic": true,
+          "evidence": [
+            {
+              "claim_id": "R2026007",
+              "rule_id": "D3",
+              "field": "amount",
+              "field_value": 1280.0,
+              "message": "差旅费-住宿 上限 600.00 元，本单 1280.00 元，超出 680.00 元"
+            }
+          ],
+          "message": "金额超出类别政策上限"
+        },
+        {
+          "rule_id": "D5",
+          "rule_name": "科目关键词不符",
+          "hit": true,
+          "severity": "medium",
+          "deterministic": false,
+          "evidence": [
+            {
+              "claim_id": "R2026007",
+              "rule_id": "D5",
+              "field": "business_purpose",
+              "field_value": "线上会议，无需出差",
+              "message": "类别 差旅费-住宿 的关键词 ['住宿', '酒店', '宾馆', '旅店'] 均未在事由中出现，是否实质不符需大模型复核"
+            }
+          ],
+          "message": "事由未命中类别关键词，待语义复核"
+        }
+      ],
+      "llm_decision": {
+        "consistent": false,
+        "confidence": 0.99,
+        "reason": "报销事由为线上会议且无需出差，却按差旅费-住宿报销酒店费用，业务实质与费用类别及事由明显矛盾。",
+        "risk_type": "事由与实质矛盾",
+        "backend": "openai",
+        "raw": {
+          "consistent": false,
+          "confidence": 0.99,
+          "reason": "报销事由为线上会议且无需出差，却按差旅费-住宿报销酒店费用，业务实质与费用类别及事由明显矛盾。",
+          "risk_type": "事由与实质矛盾"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026007",
+        "source_fields": {
+          "submitter": "孙八",
+          "department": "研发部",
+          "expense_date": "2026-11-10",
+          "category": "差旅费-住宿",
+          "amount": 1280.0,
+          "invoice_no": "INV-2026-1107",
+          "vendor": "滨江大酒店",
+          "business_purpose": "线上会议，无需出差"
+        },
+        "rule_findings": [
+          {
+            "rule_id": "D3",
+            "rule_name": "金额超限",
+            "hit": true,
+            "severity": "high",
+            "deterministic": true,
+            "evidence": [
+              {
+                "claim_id": "R2026007",
+                "rule_id": "D3",
+                "field": "amount",
+                "field_value": 1280.0,
+                "message": "差旅费-住宿 上限 600.00 元，本单 1280.00 元，超出 680.00 元"
+              }
+            ],
+            "message": "金额超出类别政策上限"
+          },
+          {
+            "rule_id": "D5",
+            "rule_name": "科目关键词不符",
+            "hit": true,
+            "severity": "medium",
+            "deterministic": false,
+            "evidence": [
+              {
+                "claim_id": "R2026007",
+                "rule_id": "D5",
+                "field": "business_purpose",
+                "field_value": "线上会议，无需出差",
+                "message": "类别 差旅费-住宿 的关键词 ['住宿', '酒店', '宾馆', '旅店'] 均未在事由中出现，是否实质不符需大模型复核"
+              }
+            ],
+            "message": "事由未命中类别关键词，待语义复核"
+          }
+        ],
+        "llm_decision": {
+          "consistent": false,
+          "confidence": 0.99,
+          "risk_type": "事由与实质矛盾",
+          "reason": "报销事由为线上会议且无需出差，却按差旅费-住宿报销酒店费用，业务实质与费用类别及事由明显矛盾。"
+        },
+        "verdict": {
+          "level": "high",
+          "action": "manual",
+          "reason": "命中确定性规则（重复票/拆单/超限/超预算等），规则结论优先，人工复核",
+          "rule_severity": "high",
+          "rule_hit": true,
+          "deterministic_rule_ids": [
+            "D3"
+          ],
+          "semantic_rule_ids": [
+            "D5"
+          ],
+          "llm_consistent": false,
+          "llm_confidence": 0.99
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "0fe95ff7fc33e6f2f76451b5085aabc7054c62f3e52ca38b8e7180398c4b8683"
+      }
+    },
+    {
+      "claim_id": "R2026008",
+      "submitter": "周九",
+      "category": "办公费",
+      "amount": 180.0,
+      "verdict": {
+        "level": "pass",
+        "action": "auto_pass",
+        "reason": "双路径一致通过，置信度达标",
+        "rule_severity": "pass",
+        "rule_hit": false,
+        "deterministic_rule_ids": [],
+        "semantic_rule_ids": [],
+        "llm_consistent": true,
+        "llm_confidence": 0.8
+      },
+      "rule_findings": [],
+      "llm_decision": {
+        "consistent": true,
+        "confidence": 0.8,
+        "reason": "行政部从新华书店购买业务参考书籍，属于办公或资料类支出，与“办公费”科目及“购买业务参考书籍”事由相符。",
+        "risk_type": "无",
+        "backend": "openai",
+        "raw": {
+          "consistent": true,
+          "confidence": 0.8,
+          "reason": "行政部从新华书店购买业务参考书籍，属于办公或资料类支出，与“办公费”科目及“购买业务参考书籍”事由相符。",
+          "risk_type": "无"
+        }
+      },
+      "evidence": {
+        "claim_id": "R2026008",
+        "source_fields": {
+          "submitter": "周九",
+          "department": "行政部",
+          "expense_date": "2026-11-11",
+          "category": "办公费",
+          "amount": 180.0,
+          "invoice_no": "INV-2026-1108",
+          "vendor": "新华书店",
+          "business_purpose": "购买业务参考书籍"
+        },
+        "rule_findings": [],
+        "llm_decision": {
+          "consistent": true,
+          "confidence": 0.8,
+          "risk_type": "无",
+          "reason": "行政部从新华书店购买业务参考书籍，属于办公或资料类支出，与“办公费”科目及“购买业务参考书籍”事由相符。"
+        },
+        "verdict": {
+          "level": "pass",
+          "action": "auto_pass",
+          "reason": "双路径一致通过，置信度达标",
+          "rule_severity": "pass",
+          "rule_hit": false,
+          "deterministic_rule_ids": [],
+          "semantic_rule_ids": [],
+          "llm_consistent": true,
+          "llm_confidence": 0.8
+        },
+        "rule_engine_version": "rule-engine-v0.1",
+        "evidence_hash": "45c7f97fac72b44584a226b1894cf1a4db3e1ddd15d9d5651056775e13ec43d4"
+      }
+    }
+  ]
+}
